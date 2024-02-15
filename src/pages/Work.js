@@ -1,13 +1,5 @@
 import "../styles/Work.scss";
 function Work() {
-  const menu = document.getElementById("work");
-  Array.from(document.getElementsByClassName("work-menu-item")).forEach(
-    (item, index) => {
-      item.onmouseover = () => {
-        menu.dataset.activeIndex = index;
-      };
-    }
-  );
   return (
     <div id="work" className="work-container bg-neutral-900 text-accent-400">
       <ul className="" id="work-menu">

@@ -102,6 +102,14 @@ function Home() {
   };
   /* CURSOR ANIMATION END*/
 
+  const menu = document.getElementById("work");
+  Array.from(document.getElementsByClassName("work-menu-item")).forEach(
+    (item, index) => {
+      item.onmouseover = () => {
+        menu.dataset.activeIndex = index;
+      };
+    }
+  );
   return (
     <div
       className="home-container bg-neutral-900 text-neutral-100"

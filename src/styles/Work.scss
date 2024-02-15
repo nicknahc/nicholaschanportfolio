@@ -18,7 +18,7 @@
 }
 #work-menu:hover ~ .work-menu-background {
   background-size: 11vmin 11vmin;
-  opacity: 0.8;
+  opacity: 0.6;
 }
 .work-menu-item {
   font-family: "Ibarra Real Nova", serif;
@@ -29,11 +29,12 @@
 }
 .work-menu-background {
   background-image: radial-gradient(
-    rgba(255, 255, 255, 0.1) 9%,
+    rgba(255, 255, 255, 0.171) 9%,
     transparent 9%
   );
+  //   background-image: url("../assets/developer-icon.png");
   background-position: 0% 0%;
-  background-size: 12vmin 12vmin;
+  background-size: 30vmin 30vmin;
   height: 100vh;
   left: 0px;
   position: absolute;
