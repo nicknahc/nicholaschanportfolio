@@ -1,0 +1,62 @@
+.work-container {
+  height: 100dvh;
+  position: relative;
+}
+
+#work-menu {
+  height: 100dvh;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#work-menu:hover > .work-menu-item {
+  opacity: 0.3;
+}
+
+#work-menu:hover > .work-menu-item:hover {
+  opacity: 1;
+}
+
+#work-menu:hover ~ .work-menu-background {
+  background-size: 11vmin 11vmin;
+  opacity: 0.8;
+}
+
+.work-menu-item {
+  font-family: "Ibarra Real Nova", serif;
+  color: var(--clr-neutral-100);
+  cursor: pointer;
+  transition: opacity 400ms ease;
+  z-index: 2;
+}
+
+.work-menu-background {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 9%, transparent 9%);
+  background-position: 0% 0%;
+  background-size: 12vmin 12vmin;
+  height: 100vh;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  transition: opacity 800ms ease, background-size 800ms ease, background-position 800ms ease;
+  width: 100vw;
+  z-index: 1;
+}
+
+#work[data-active-index="0"] > .work-menu-background {
+  background-position: 0% -25%;
+}
+
+#work[data-active-index="1"] > .work-menu-background {
+  background-position: 0% -50%;
+}
+
+#work[data-active-index="2"] > .work-menu-background {
+  background-position: 0% -75%;
+}
+
+#work[data-active-index="3"] > .work-menu-background {
+  background-position: 0% -100%;
+}/*# sourceMappingURL=Work.css.map */

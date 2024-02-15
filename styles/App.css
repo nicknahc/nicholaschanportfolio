@@ -2,7 +2,7 @@
 :root {
   --clr-accent-400: #cbf3ff;
   --clr-accent-100: #4cc5e8;
-  --clr-accent-900: hsl(342, 43%, 59%);
+  --clr-accent-900: hsl(32, 100%, 57%);
   --clr-primary-400: #e56d4c;
   --clr-neutral-100: white;
   --clr-neutral-900: black;
@@ -170,4 +170,8 @@ a:hover {
 
 a:active {
   text-decoration: none;
+}
+
+ul {
+  list-style: none;
 }/*# sourceMappingURL=App.css.map */

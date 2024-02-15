@@ -24,6 +24,8 @@
   );
   background-size: 200%;
   height: 100dvh;
+  position: relative;
+  overflow: hidden;
 }
 .introduction {
   font-size: clamp(1rem, calc(1rem + 10dvw), 9rem);
@@ -166,8 +168,8 @@ body.toggled #root .App .home-container .introduction .alt-introduction-2 {
 //   background: radial-gradient(
 //     circle,
 //     /* Transparent color at the center */ var(--clr-accent-100) 3%,
-//     /* Primary color */ rgb(15, 15, 15) 60%,
-//     /* Secondary color */ transparent 70% /* Transparent color at the edges */
+//     /* Primary color */ rgb(15, 15, 15) 20%,
+//     /* Secondary color */ transparent 50% /* Transparent color at the edges */
 //   );
 //   animation: rotate 20s infinite;
 //   pointer-events: none;

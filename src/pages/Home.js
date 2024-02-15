@@ -28,15 +28,15 @@ function Home() {
       // Add or remove the "toggled" class from the body element
       if (newToggled) {
         document.body.classList.add("toggled");
-        document.querySelector(".introduction-2").classList.add("fade-in");
+        //document.querySelector(".introduction-2").classList.add("fade-in");
         document.querySelector(".alt-introduction-2").classList.add("fade-in");
         document.querySelector("#blob").classList.add("fade-out");
       } else {
         document.body.classList.remove("toggled");
-        document.querySelector(".introduction-2").classList.remove("fade-in");
-        document
-          .querySelector(".alt-introduction-2")
-          .classList.remove("fade-in");
+        // document.querySelector(".introduction-2").classList.remove("fade-in");
+        //document
+        //   .querySelector(".alt-introduction-2")
+        //   .classList.remove("fade-in");
         document.querySelector("#blob").classList.remove("fade-out");
       }
       anime({
@@ -119,12 +119,12 @@ function Home() {
       </div>
       <div id="blob" ref={blobRef}></div>
       <h1 className="introduction">
-        <span className="introduction-2 text-accent-900">Nicholas Chan: </span>
-        <span className="alt-introduction-2 text-accent-900">
-          Front-End Developer.
+        <span className="alt-introduction-2 text-neutral-900">
+          Hi there. <br /> I'm{" "}
+          <span className="text-accent-900">Nicholas Chan</span>
         </span>
       </h1>
-      <a className="scroll-link" href="#aboutme">
+      <a className="scroll-link" href="#work">
         <div className="scroll-down fs-500 text-accent-900">Learn more</div>
       </a>
     </div>

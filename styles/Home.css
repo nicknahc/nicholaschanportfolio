@@ -17,6 +17,8 @@
   background: linear-gradient(to right, var(--clr-accent-100), var(--clr-accent-400), var(--clr-accent-100));
   background-size: 200%;
   height: 100dvh;
+  position: relative;
+  overflow: hidden;
 }
 
 .introduction {
