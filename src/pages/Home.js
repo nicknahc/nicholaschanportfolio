@@ -28,16 +28,14 @@ function Home() {
       // Add or remove the "toggled" class from the body element
       if (newToggled) {
         document.body.classList.add("toggled");
-        //document.querySelector(".introduction-2").classList.add("fade-in");
+        document.querySelector(".introduction-2").classList.add("fade-in");
         document.querySelector(".alt-introduction-2").classList.add("fade-in");
-        document.querySelector("#blob").classList.add("fade-out");
       } else {
         document.body.classList.remove("toggled");
-        // document.querySelector(".introduction-2").classList.remove("fade-in");
-        //document
-        //   .querySelector(".alt-introduction-2")
-        //   .classList.remove("fade-in");
-        document.querySelector("#blob").classList.remove("fade-out");
+        document.querySelector(".introduction-2").classList.remove("fade-in");
+        document
+          .querySelector(".alt-introduction-2")
+          .classList.remove("fade-in");
       }
       anime({
         targets: ".tile",
@@ -83,25 +81,6 @@ function Home() {
   }, [columns, rows]); // Empty dependency array ensures the effect runs only once after the initial render
   /* TILE ANIMATION END */
 
-  /* CURSOR ANIMATION START */
-
-  const blobRef = useRef(null);
-
-  const handleMouseMove = (event) => {
-    const { clientX, clientY } = event;
-    const blob = blobRef.current;
-
-    // Calculate the center of the blob
-    const blobWidth = blob.offsetWidth;
-    const blobHeight = blob.offsetHeight;
-    const blobX = clientX - blobWidth / 2;
-    const blobY = clientY - blobHeight / 2;
-
-    blob.style.left = `${blobX}px`;
-    blob.style.top = `${blobY}px`;
-  };
-  /* CURSOR ANIMATION END*/
-
   const menu = document.getElementById("work");
   Array.from(document.getElementsByClassName("work-menu-item")).forEach(
     (item, index) => {
@@ -111,10 +90,7 @@ function Home() {
     }
   );
   return (
-    <div
-      className="home-container bg-neutral-900 text-neutral-100"
-      onMouseMove={handleMouseMove}
-    >
+    <div className="home-container bg-neutral-900 text-neutral-100">
       <div
         className="tiles-container"
         style={{
@@ -125,13 +101,14 @@ function Home() {
       >
         {tiles}
       </div>
-      <div id="blob" ref={blobRef}></div>
-      <h1 className="introduction">
-        <span className="alt-introduction-2 text-neutral-900">
-          Hi there. <br /> I'm{" "}
-          <span className="text-accent-900">Nicholas Chan</span>
+      <div className="introduction">
+        <span className="introduction-2 material-symbols-outlined">
+          contact_page
         </span>
-      </h1>
+        <span className="alt-introduction-2 text-neutral-900 fw-bold">
+          Hi there. <br /> I'm <span className="text-accent-900">Nicholas</span>
+        </span>
+      </div>
       <a className="scroll-link" href="#work">
         <div className="scroll-down fs-500 text-accent-900">Learn more</div>
       </a>

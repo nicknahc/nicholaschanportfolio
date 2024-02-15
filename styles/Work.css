@@ -1,6 +1,7 @@
 .work-container {
   height: 100dvh;
   position: relative;
+  display: flex;
 }
 
 #work-menu {
@@ -9,6 +10,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: -moz-max-content;
+  min-width: max-content;
 }
 
 #work-menu:hover > .work-menu-item {
@@ -35,7 +38,7 @@
 .work-menu-background {
   background-image: radial-gradient(rgba(255, 255, 255, 0.171) 9%, transparent 9%);
   background-position: 0% 0%;
-  background-size: 30vmin 30vmin;
+  background-size: 12vmin 12vmin;
   height: 100vh;
   left: 0px;
   position: absolute;
@@ -46,11 +49,11 @@
 }
 
 #work[data-active-index="0"] > .work-menu-background {
-  background-position: 0% -25%;
+  background-position: 0% -50%;
 }
 
 #work[data-active-index="1"] > .work-menu-background {
-  background-position: 0% -50%;
+  background-position: 0% -100%;
 }
 
 #work[data-active-index="2"] > .work-menu-background {
@@ -59,4 +62,12 @@
 
 #work[data-active-index="3"] > .work-menu-background {
   background-position: 0% -100%;
+}
+
+.work-example {
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
 }/*# sourceMappingURL=Work.css.map */

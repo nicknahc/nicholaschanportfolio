@@ -19,6 +19,8 @@
   height: 100dvh;
   position: relative;
   overflow: hidden;
+  -webkit-clip-path: inset(0 0 0 0);
+          clip-path: inset(0 0 0 0);
 }
 
 .introduction {
@@ -34,7 +36,7 @@
 }
 
 .scroll-link {
-  display: none;
+  opacity: 0;
   padding: 1rem;
 }
 
@@ -49,8 +51,8 @@
 .scroll-down:before,
 .scroll-down:after {
   content: "";
-  position: absolute;
-  bottom: 5%;
+  position: fixed;
+  bottom: 15%;
   left: 50%;
   border: 2px solid var(--clr-accent-900);
   height: 1rem;
@@ -62,7 +64,7 @@
 }
 
 .scroll-down:after {
-  bottom: 7%;
+  bottom: 12%;
 }
 
 @keyframes fade-down {
@@ -77,7 +79,7 @@
   }
   100% {
     opacity: 0;
-    bottom: -5%;
+    bottom: 0%;
   }
 }
 .home-container.toggled {
@@ -91,7 +93,6 @@
 
 body.toggled #root .App .home-container .scroll-link {
   opacity: 1;
-  display: inline;
   z-index: 1;
   transition: opacity 1200ms ease;
 }
@@ -102,26 +103,27 @@ body.toggled #root .App .home-container .introduction {
 }
 
 .introduction-2 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30dvw;
   opacity: 1;
-  visibility: visible;
   transition: opacity 1200ms ease;
+  color: var(--clr-accent-400);
 }
 
 body.toggled #root .App .home-container .introduction-2 {
   opacity: 0;
-  visibility: collapse;
   transition: opacity 1200ms ease;
 }
 
 .alt-introduction-2 {
   opacity: 0;
-  visibility: collapse;
   transition: opacity 1200ms ease;
 }
 
 body.toggled #root .App .home-container .introduction .alt-introduction-2 {
-  display: inline;
-  visibility: visible;
   opacity: 1;
   transition: opacity 1200ms ease;
 }
@@ -157,7 +159,6 @@ body.toggled #root .App .home-container .introduction .alt-introduction-2 {
   position: absolute;
 }
 
-/* CURSOR ANIMATION */
 .fade-out {
   opacity: 0 !important;
 }/*# sourceMappingURL=Home.css.map */
