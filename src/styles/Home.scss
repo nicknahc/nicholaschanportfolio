@@ -1,11 +1,29 @@
 @import url("../App.scss");
+
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: -200% center;
+  }
+}
 .home-container {
   width: 100dvw;
-  height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  animation: background-pan 10s linear infinite;
+  background: linear-gradient(
+    to right,
+    var(--clr-accent-100),
+    var(--clr-accent-400),
+    var(--clr-accent-100)
+  );
+  background-size: 200%;
+  height: 100dvh;
 }
 .introduction {
   font-size: clamp(1rem, calc(1rem + 10dvw), 9rem);
@@ -16,11 +34,11 @@
   transition: opacity 1200ms ease;
   width: 50vw;
   z-index: 3;
-  padding-left: 5%;
+  line-height: 8rem;
 }
 .scroll-link {
   display: none;
-  padding: 2rem;
+  padding: 1rem;
 }
 .scroll-down {
   border: solid var(--clr-accent-900);
@@ -33,7 +51,7 @@
 .scroll-down:after {
   content: "";
   position: absolute;
-  bottom: 12%;
+  bottom: 5%;
   left: 50%;
   border: 2px solid var(--clr-accent-900);
   height: 1rem;
@@ -44,7 +62,7 @@
   animation: fade-down 1.5s ease-in-out infinite;
 }
 .scroll-down:after {
-  bottom: 10%;
+  bottom: 7%;
 }
 @keyframes fade-down {
   0% {
@@ -62,67 +80,50 @@
   }
 }
 
-@keyframes background-pan {
-  from {
-    background-position: 0% center;
-  }
-
-  to {
-    background-position: -200% center;
-  }
-}
-
-.home-container {
-  animation: background-pan 10s linear infinite;
-  background: linear-gradient(
-    to right,
-    var(--clr-accent-100),
-    var(--clr-accent-400),
-    var(--clr-accent-100)
-  );
-  background-size: 200%;
-  height: 100vh;
-  margin: 0px;
-}
-
 .home-container.toggled {
   animation: none;
 }
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 1200ms ease;
+}
+
 body.toggled #root .App .home-container .scroll-link {
+  opacity: 1;
   display: inline;
   z-index: 1;
+  transition: opacity 1200ms ease;
 }
 body.toggled #root .App .home-container .introduction {
   opacity: 1;
+  transition: opacity 1200ms ease;
 }
 .introduction-2 {
-  color: var(--clr-primary-400);
-}
-.alt-introduction-2 {
-  display: none;
-  color: var(--clr-accent-900);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1200ms ease;
 }
 body.toggled #root .App .home-container .introduction-2 {
-  display: none;
+  opacity: 0;
+  visibility: collapse;
+  transition: opacity 1200ms ease;
 }
+.alt-introduction-2 {
+  opacity: 0;
+  visibility: collapse;
+  transition: opacity 1200ms ease;
+}
+
 body.toggled #root .App .home-container .introduction .alt-introduction-2 {
   display: inline;
+  visibility: visible;
   opacity: 1;
-}
-.home-container.toggled > #icon {
-  display: inline;
-  opacity: 1;
+  transition: opacity 1200ms ease;
 }
 
 .home-container.toggled > #tiles > .tile:hover {
-  opacity: 0.1 !important;
-}
-
-.centered {
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  opacity: 0.2 !important;
 }
 
 .tiles-container {
@@ -132,6 +133,7 @@ body.toggled #root .App .home-container .introduction .alt-introduction-2 {
   width: calc(100dvw - 1px);
   height: calc(100dvh - 1px);
   display: grid;
+  overflow: hidden;
 }
 
 .tile {
@@ -149,4 +151,29 @@ body.toggled #root .App .home-container .introduction .alt-introduction-2 {
   content: "";
   inset: 0.5px;
   position: absolute;
+}
+
+/* CURSOR ANIMATION */
+
+// #blob {
+//   background-color: white;
+//   height: 34vmax;
+//   aspect-ratio: 1;
+//   position: absolute;
+//   transform: translate(-50%, -50%);
+//   border-radius: 50%;
+//   opacity: 0.9;
+//   background: radial-gradient(
+//     circle,
+//     /* Transparent color at the center */ var(--clr-accent-100) 3%,
+//     /* Primary color */ rgb(15, 15, 15) 60%,
+//     /* Secondary color */ transparent 70% /* Transparent color at the edges */
+//   );
+//   animation: rotate 20s infinite;
+//   pointer-events: none;
+//   transition: opacity 250ms ease;
+// }
+
+.fade-out {
+  opacity: 0 !important;
 }

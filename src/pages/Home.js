@@ -1,5 +1,5 @@
 import "../styles/Home.scss";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import anime from "animejs";
 /*
 Animation Inspired by: 
@@ -7,6 +7,7 @@ https://codepen.io/Hyperplexed/full/zYWvXMM
 https://codepen.io/sharnajh/full/YzXOGpm
 */
 function Home() {
+  /* TILE ANIMATION START */
   const [columns, setColumns] = useState(0);
   const [rows, setRows] = useState(0);
   const [toggled, setToggled] = useState(false);
@@ -27,13 +28,21 @@ function Home() {
       // Add or remove the "toggled" class from the body element
       if (newToggled) {
         document.body.classList.add("toggled");
+        document.querySelector(".introduction-2").classList.add("fade-in");
+        document.querySelector(".alt-introduction-2").classList.add("fade-in");
+        document.querySelector("#blob").classList.add("fade-out");
       } else {
         document.body.classList.remove("toggled");
+        document.querySelector(".introduction-2").classList.remove("fade-in");
+        document
+          .querySelector(".alt-introduction-2")
+          .classList.remove("fade-in");
+        document.querySelector("#blob").classList.remove("fade-out");
       }
       anime({
         targets: ".tile",
         opacity: newToggled ? 0 : 1, // Use the updated value
-        delay: anime.stagger(30, {
+        delay: anime.stagger(50, {
           grid: [columns, rows],
           from: index,
         }),
@@ -72,9 +81,32 @@ function Home() {
       window.removeEventListener("resize", handleResize); // Remove event listener on component unmount
     };
   }, [columns, rows]); // Empty dependency array ensures the effect runs only once after the initial render
+  /* TILE ANIMATION END */
+
+  /* CURSOR ANIMATION START */
+
+  const blobRef = useRef(null);
+
+  const handleMouseMove = (event) => {
+    const { clientX, clientY } = event;
+    const blob = blobRef.current;
+
+    // Calculate the center of the blob
+    const blobWidth = blob.offsetWidth;
+    const blobHeight = blob.offsetHeight;
+    const blobX = clientX - blobWidth / 2;
+    const blobY = clientY - blobHeight / 2;
+
+    blob.style.left = `${blobX}px`;
+    blob.style.top = `${blobY}px`;
+  };
+  /* CURSOR ANIMATION END*/
 
   return (
-    <div className="home-container bg-neutral-900 text-neutral-100">
+    <div
+      className="home-container bg-neutral-900 text-neutral-100"
+      onMouseMove={handleMouseMove}
+    >
       <div
         className="tiles-container"
         style={{
@@ -85,11 +117,10 @@ function Home() {
       >
         {tiles}
       </div>
-
+      <div id="blob" ref={blobRef}></div>
       <h1 className="introduction">
-        <span className="introduction-2 text-accent-100">Nicholas Chan</span>
-        <span className="alt-introduction-2">
-          I'm a <br />
+        <span className="introduction-2 text-accent-900">Nicholas Chan: </span>
+        <span className="alt-introduction-2 text-accent-900">
           Front-End Developer.
         </span>
       </h1>
