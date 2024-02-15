@@ -1,0 +1,157 @@
+@import url("../App.scss");
+.home-container {
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.introduction {
+  font-size: clamp(1rem, 1rem + 10dvw, 9rem);
+  color: white;
+  font-family: "Rubik", sans-serif;
+  margin: 0px;
+  pointer-events: none;
+  transition: opacity 1200ms ease;
+  width: 50vw;
+  z-index: 3;
+  padding-left: 5%;
+}
+
+.scroll-link {
+  display: none;
+  padding: 2rem;
+}
+
+.scroll-down {
+  border: solid var(--clr-accent-900);
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  border-width: 2px;
+  opacity: 1;
+}
+
+.scroll-down:before,
+.scroll-down:after {
+  content: "";
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  border: 2px solid var(--clr-accent-900);
+  height: 1rem;
+  width: 1rem;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-top: transparent;
+  border-left: transparent;
+  animation: fade-down 1.5s ease-in-out infinite;
+}
+
+.scroll-down:after {
+  bottom: 10%;
+}
+
+@keyframes fade-down {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    bottom: -5%;
+  }
+}
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: -200% center;
+  }
+}
+.home-container {
+  animation: background-pan 10s linear infinite;
+  background: linear-gradient(to right, var(--clr-accent-100), var(--clr-accent-400), var(--clr-accent-100));
+  background-size: 200%;
+  height: 100vh;
+  margin: 0px;
+}
+
+.home-container.toggled {
+  animation: none;
+}
+
+body.toggled #root .App .home-container .scroll-link {
+  display: inline;
+  z-index: 1;
+}
+
+body.toggled #root .App .home-container .introduction {
+  opacity: 1;
+}
+
+.introduction-2 {
+  color: var(--clr-primary-400);
+}
+
+.alt-introduction-2 {
+  display: none;
+  color: var(--clr-accent-900);
+}
+
+body.toggled #root .App .home-container .introduction-2 {
+  display: none;
+}
+
+body.toggled #root .App .home-container .introduction .alt-introduction-2 {
+  display: inline;
+  opacity: 1;
+}
+
+.home-container.toggled > #icon {
+  display: inline;
+  opacity: 1;
+}
+
+.home-container.toggled > #tiles > .tile:hover {
+  opacity: 0.1 !important;
+}
+
+.centered {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tiles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100dvw - 1px);
+  height: calc(100dvh - 1px);
+  display: grid;
+}
+
+.tile {
+  cursor: pointer;
+  position: relative;
+  aspect-ratio: 1/1;
+}
+
+.tile:hover:before {
+  background-color: rgb(30, 30, 30);
+}
+
+.tile:before {
+  background-color: rgb(15, 15, 15);
+  content: "";
+  inset: 0.5px;
+  position: absolute;
+}/*# sourceMappingURL=Home.css.map */
