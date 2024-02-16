@@ -2,6 +2,8 @@
   height: 100dvh;
   position: relative;
   display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #work-menu {
@@ -68,6 +70,11 @@
   height: 100dvh;
   display: flex;
   align-items: center;
+  justify-items: center;
   justify-content: flex-end;
-  width: 100%;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 2rem;
+  height: auto;
+  background-color: rgb(58, 58, 58);
 }/*# sourceMappingURL=Work.css.map */
