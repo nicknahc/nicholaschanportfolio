@@ -30,7 +30,8 @@
   margin: 0px;
   pointer-events: none;
   transition: opacity 1200ms ease;
-  width: 50vw;
+  width: -moz-max-content;
+  width: max-content;
   z-index: 3;
   line-height: 8rem;
 }
