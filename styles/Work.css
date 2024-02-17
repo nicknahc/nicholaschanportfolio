@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  overflow: hidden;
 }
 
 #work-menu {
@@ -39,6 +40,7 @@
 
 .work-menu-background {
   background-image: radial-gradient(rgba(255, 255, 255, 0.171) 9%, transparent 9%);
+  pointer-events: none;
   background-position: 0% 0%;
   background-size: 12vmin 12vmin;
   height: 100vh;
@@ -66,9 +68,16 @@
   background-position: 0% -100%;
 }
 
+#work[data-active-index="0"] > .work-example {
+  transform: translateX(0);
+  opacity: 1;
+}
+
 .work-example {
   height: 100dvh;
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-items: center;
   justify-content: flex-end;
@@ -77,4 +86,16 @@
   padding: 2rem;
   height: auto;
   background-color: rgb(58, 58, 58);
+  transform: translateX(200%);
+  opacity: 0;
+  transition: transform 0.75s, opacity 0.5s;
+}
+
+.gymbuddy-link {
+  cursor: pointer;
+  translate: 0 50%;
+  padding: 0.5rem 2rem;
+  position: absolute;
+  background-color: black;
+  z-index: 999;
 }/*# sourceMappingURL=Work.css.map */
