@@ -13,7 +13,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: max-content;
+  min-width: fit-content;
+  width: 50dvw;
 }
 #work-menu:hover .work-menu-item {
   opacity: 0.3;
@@ -32,6 +33,8 @@
   cursor: pointer;
   transition: opacity 400ms ease;
   z-index: 2;
+  padding-block: 1rem;
+  font-size: clamp(2rem, calc(1rem + 5dvw), 7rem);
 }
 .work-menu-background {
   background-image: radial-gradient(
@@ -82,6 +85,22 @@
   opacity: 0;
   transition: transform 0.75s, opacity 0.5s;
 }
+.demo-img {
+  max-width: 100%;
+  width: 55dvw;
+}
+@media (max-width: 40em) {
+  .work-example {
+    position: relative;
+    right: auto;
+    width: 90dvw;
+    padding: 1rem;
+  }
+  .demo-img {
+    width: 80dvw;
+  }
+}
+
 .gymbuddy-link {
   transition: 0.3s all ease-in-out;
 }
@@ -102,6 +121,5 @@
   padding: 0.5rem 2rem;
   position: absolute;
   background-color: black;
-  z-index: 999;
   transition: 0.3s all ease-in-out;
 }

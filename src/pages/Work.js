@@ -4,8 +4,8 @@ function Work() {
   return (
     <div id="work" className="work-container bg-neutral-900 text-accent-400">
       <ul className="" id="work-menu">
-        <li id="item-1" className="work-menu-item fs-700">
-          Work Experience
+        <li id="item-1" className="work-menu-item">
+          GymBuddy
         </li>
         <div className="work-example">
           <a
@@ -16,8 +16,7 @@ function Work() {
           >
             <img
               src={gymbuddydemo}
-              height="auto"
-              width="800"
+              className="demo-img"
               alt="A demonstration gif of the gymbuddy website"
             ></img>
           </a>
