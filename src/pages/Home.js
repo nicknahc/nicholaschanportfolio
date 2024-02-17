@@ -1,8 +1,8 @@
 import "../styles/Home.scss";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import anime from "animejs";
 /*
-Animation Inspired by: 
+Tile animation Inspired by: 
 https://codepen.io/Hyperplexed/full/zYWvXMM 
 https://codepen.io/sharnajh/full/YzXOGpm
 */

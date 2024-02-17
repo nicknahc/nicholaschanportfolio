@@ -1,5 +1,10 @@
 import "../styles/Work.scss";
 import gymbuddydemo from "../assets/gymbuddy-demo.png";
+/*
+Menu Animation Inspired by: 
+https://codepen.io/Hyperplexed/full/bGvejNY
+http://dnacapital.com/
+*/
 function Work() {
   return (
     <div id="work" className="work-container bg-neutral-900 text-accent-400">
