@@ -29,7 +29,7 @@
   clip-path: inset(0 0 0 0);
 }
 .introduction {
-  font-size: clamp(1rem, calc(1rem + 10dvw), 9rem);
+  font-size: clamp(2rem, calc(1rem + 10dvw), 9rem);
   color: white;
   font-family: "Rubik", sans-serif;
   margin: 0px;
@@ -92,12 +92,12 @@
   transition: opacity 1200ms ease;
 }
 
-body.toggled #root .App .home-container .scroll-link {
+body.toggled .scroll-link {
   opacity: 1;
   z-index: 1;
   transition: opacity 1200ms ease;
 }
-body.toggled #root .App .home-container .introduction {
+body.toggled .introduction {
   opacity: 1;
   transition: opacity 1200ms ease;
 }
@@ -111,7 +111,7 @@ body.toggled #root .App .home-container .introduction {
   transition: opacity 1200ms ease;
   color: var(--clr-accent-400);
 }
-body.toggled #root .App .home-container .introduction-2 {
+body.toggled .introduction-2 {
   opacity: 0;
   transition: opacity 1200ms ease;
 }
@@ -120,12 +120,12 @@ body.toggled #root .App .home-container .introduction-2 {
   transition: opacity 1200ms ease;
 }
 
-body.toggled #root .App .home-container .introduction .alt-introduction-2 {
+body.toggled .alt-introduction-2 {
   opacity: 1;
   transition: opacity 1200ms ease;
 }
 
-.home-container.toggled > #tiles > .tile:hover {
+.home-container.toggled .tile:hover {
   opacity: 0.2 !important;
 }
 

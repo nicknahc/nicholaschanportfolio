@@ -2,9 +2,10 @@
   height: 100dvh;
   position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   overflow: hidden;
+  max-width: 100dvw;
 }
 #work-menu {
   height: 100dvh;
@@ -14,11 +15,11 @@
   justify-content: center;
   min-width: max-content;
 }
-#work-menu:hover > .work-menu-item {
+#work-menu:hover .work-menu-item {
   opacity: 0.3;
 }
 
-#work-menu:hover > .work-menu-item:hover {
+#work-menu:hover .work-menu-item:hover {
   opacity: 1;
 }
 #work-menu:hover ~ .work-menu-background {
@@ -50,34 +51,30 @@
   z-index: 1;
 }
 
-#work[data-active-index="0"] > .work-menu-background {
+#work[data-active-index="0"] .work-menu-background {
   background-position: 0% -50%;
 }
 
-#work[data-active-index="1"] > .work-menu-background {
+#work[data-active-index="1"] .work-menu-background {
   background-position: 0% -100%;
 }
 
-#work[data-active-index="2"] > .work-menu-background {
+#work[data-active-index="2"] .work-menu-background {
   background-position: 0% -75%;
 }
 
-#work[data-active-index="3"] > .work-menu-background {
+#work[data-active-index="3"] .work-menu-background {
   background-position: 0% -100%;
 }
-#work[data-active-index="0"] > .work-example {
-  transform: translateX(0);
-  opacity: 1;
-}
+
 .work-example {
-  height: 100dvh;
-  position: relative;
+  position: absolute;
+  right: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-items: center;
   justify-content: flex-end;
-  width: max-content;
   padding: 2rem;
   height: auto;
   background-color: rgb(58, 58, 58);
@@ -85,12 +82,26 @@
   opacity: 0;
   transition: transform 0.75s, opacity 0.5s;
 }
-
 .gymbuddy-link {
+  transition: 0.3s all ease-in-out;
+}
+.gymbuddy-link:hover {
+  transform: scale(0.95);
+}
+.gymbuddy-link:hover ~ .repo-link {
+  transform: scale(0.95) translateY(-15%);
+}
+
+#work[data-active-index="0"] .work-example {
+  transform: translateX(0);
+  opacity: 1;
+}
+.repo-link {
   cursor: pointer;
-  translate: 0 50%;
+  translate: 0 40%;
   padding: 0.5rem 2rem;
   position: absolute;
   background-color: black;
   z-index: 999;
+  transition: 0.3s all ease-in-out;
 }
